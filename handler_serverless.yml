@@ -3,20 +3,14 @@ service: serverless-aws-lambda
 provider:
   name: aws
   runtime: nodejs12.x
-  iam:
-    role:
-      statements:
-        - Effect: Allow
-          Action:
-            - dynamodb:PutItem
-          Resource: 'arn:aws:dynamodb:${aws:region}:*:table/todos'
+
 functions:
-  createTodo:
-    handler: create.run
+  helloworld:
+    handler: handler.run
     events:
       - http:
-          path: todos
-          method: post
+          path: /
+          method: get
 
 resources:
   Resources:
