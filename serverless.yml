@@ -1,0 +1,13 @@
+service: serverless-aws-lambda
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  helloworld:
+    handler: handler.run
+    events:
+      - http:
+          path: /
+          method: get
